@@ -1,0 +1,46 @@
+name: "Orca IaC Scan"
+description: "Configures Orca CLI to run IaC security scan on your code"
+branding:
+  icon: "shield"
+  color: "green"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    WORKSPACE_PATH: $GITHUB_WORKSPACE
+
+inputs:
+  api_token:
+    description: "Orca API Token used for Authentication"
+    required: true
+  exit_code:
+    description: "Exit code for failed execution due to policy violations"
+    required: false
+  no_color:
+    description: "Disable color output"
+    required: false
+    default: "false"
+  project_key:
+    description: "Project Key name"
+    required: true
+  path:
+    description: "paths or directories to scan (comma-separated)"
+    required: true
+  exclude_paths:
+    description: "list of paths to be excluded from scan (comma-separated)"
+    required: false
+  cloud_provider:
+    description: "limit scan to the specified list of cloud providers (comma-separated)"
+    required: false
+  format:
+    description: "format for displaying the results"
+    required: false
+  output:
+    description: "output file name"
+    required: false
+  platform:
+    description: "limit scan to the specified list of platforms (comma-separated)"
+    required: false
+  timeout:
+    description: "scan timeout before being canceled"
+    required: false

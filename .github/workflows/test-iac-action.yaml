@@ -1,0 +1,29 @@
+name: test orca iac action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  iac_scan_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan IaC
+        uses: ./iac
+        with:
+          api_token:
+            # EU token
+            ${{ secrets.API_TOKEN }}
+          project_key:
+            "default"
+          path:
+            "./test/iac/"
+          format:
+            "sarif"
+          output:
+            "./results/results.sarif"
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: scan-results
+          path: ./results/
