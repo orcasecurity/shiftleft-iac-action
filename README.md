@@ -1,2 +1,2 @@
 # shiftleft-actions
-Run Orca Shift-Left cli as GitHub action
+Run Orca Shift-Left CLI as GitHub action
