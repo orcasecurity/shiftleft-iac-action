@@ -17,7 +17,7 @@ jobs:
           project_key:
             "default"
           path:
-            "./test/iac/"
+            "test/iac"
           format:
             "sarif"
           output:
