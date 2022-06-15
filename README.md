@@ -50,7 +50,7 @@ jobs:
 
 | Variable        | Example Value &nbsp;                                 | Description &nbsp;                                                 | Type    | Required | Default                       |
 |-----------------|------------------------------------------------------|--------------------------------------------------------------------|---------|----------|-------------------------------|
-| api_token       | aHR0cHM6Ly9hcHAub3JjYXNlY3VyaXR5LmlvfHxteXNlY3JldA== | Orca API Token used for Authentication                             | String  | Yes      | N/A                           |
+| api_token       |  | Orca API Token used for Authentication                             | String  | Yes      | N/A                           |
 | project_key     | my-project-key                                       | Project Key name                                                   | String  | Yes      | N/A                           |
 | path            | terraform,sub-dir,other-sub-dir/Dockerfile           | Paths or directories to scan (comma-separated)                     | String  | Yes      | N/A                           |
 | exclude_paths   | ./notToBeScanned/,example.tf                         | List of paths to be excluded from scan (comma-separated)           | String  | No       | N/A                           |
