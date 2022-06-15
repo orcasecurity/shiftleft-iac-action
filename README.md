@@ -3,7 +3,7 @@
 [GitHub Action](https://github.com/features/actions)
 for [Orca Shift Left Security](https://orca.security/solutions/shift-left-security/)
 
-###More info can be found in the official Orca Shift Left Security<a href="https://docs.orcasecurity.io/v1/docs/shift-left-security"> documentation</a>
+#### More info can be found in the official Orca Shift Left Security<a href="https://docs.orcasecurity.io/v1/docs/shift-left-security"> documentation</a>
 
 
 
@@ -12,7 +12,7 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Upload SARIF report](#sarif)
+- [Upload SARIF report](#upload-sarif-report)
 
 ## Usage
 
