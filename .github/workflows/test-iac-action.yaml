@@ -1,4 +1,4 @@
-name: test orca iac action
+name: Test Orca IaC action
 
 on:
   workflow_dispatch:
