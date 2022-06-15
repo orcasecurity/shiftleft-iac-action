@@ -34,13 +34,12 @@ jobs:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
         with:
-          api_token:
-            ${{ secrets.API_TOKEN }}
-          project_key:
-            "my-project-key"
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: "my-project-key"
           path:
             # scanning directories: ./terraform/ ./sub-dir/ and a file: ./Dockerfile
             "terraform,sub-dir,other-sub-dir/Dockerfile"
@@ -81,17 +80,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Run Orca IaC Scan
-        uses: Orca/shiftleft-action
+        uses: orcasecurity/shiftleft-iac-action@v1
         with:
-          api_token:
-            ${{ secrets.API_TOKEN }}
-          project_key:
-            "my-project-key"
-          path:
-            "terraform,sub-dir,other-sub-dir/Dockerfile"
-          format:
-            "sarif"
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: "my-project-key"
+          path: "terraform,sub-dir,other-sub-dir/Dockerfile"
+          format: "sarif"
           output:
             "results/iac_scan"
       - name: Upload SARIF file
