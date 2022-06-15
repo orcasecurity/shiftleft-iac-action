@@ -12,7 +12,6 @@ jobs:
         uses: ./
         with:
           api_token:
-            # EU token
             ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key:
             "default"
