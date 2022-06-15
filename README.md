@@ -35,7 +35,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
       - name: Run Orca IaC Scan
-        uses: Orca/shiftleft-action
+        uses: orcasecurity/shiftleft-iac-action@v1
         with:
           api_token:
             ${{ secrets.API_TOKEN }}
