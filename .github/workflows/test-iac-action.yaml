@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan IaC
-        uses: ./iac
+        uses: ./
         with:
           api_token:
             # EU token
@@ -17,11 +17,11 @@ jobs:
           project_key:
             "default"
           path:
-            "test/iac"
+            "test"
           format:
             "sarif"
           output:
-            "./results/results.sarif"
+            "results/results.sarif"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
