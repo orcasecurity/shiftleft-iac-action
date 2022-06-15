@@ -24,23 +24,26 @@ inputs:
     description: "Project Key name"
     required: true
   path:
-    description: "paths or directories to scan (comma-separated)"
+    description: "Paths or directories to scan (comma-separated)"
     required: true
   exclude_paths:
-    description: "list of paths to be excluded from scan (comma-separated)"
+    description: "List of paths to be excluded from scan (comma-separated)"
     required: false
   cloud_provider:
-    description: "limit scan to the specified list of cloud providers (comma-separated)"
+    description: "Limit scan to the specified list of cloud providers (comma-separated)"
     required: false
   format:
-    description: "format for displaying the results"
+    description: "Format for displaying the results"
     required: false
   output:
-    description: "output file name"
+    description: "Output file name"
     required: false
   platform:
-    description: "limit scan to the specified list of platforms (comma-separated)"
+    description: "Limit scan to the specified list of platforms (comma-separated)"
     required: false
-  timeout:
-    description: "scan timeout before being canceled"
+  control_timeout:
+    description: "Number of seconds the control has to execute before being canceled"
+    required: false
+  preview_lines:
+    description: "Number of lines to be display in CLI results"
     required: false
