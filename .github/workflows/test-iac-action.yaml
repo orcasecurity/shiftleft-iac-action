@@ -13,7 +13,7 @@ jobs:
         with:
           api_token:
             # EU token
-            ${{ secrets.API_TOKEN }}
+            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
           project_key:
             "default"
           path:
