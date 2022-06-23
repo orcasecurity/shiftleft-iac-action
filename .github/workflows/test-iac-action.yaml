@@ -21,8 +21,8 @@ jobs:
             "sarif"
           output:
             "results/results.sarif"
-      - uses: actions/upload-artifact@v3
+      - uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
-          name: scan-results
-          path: ./results/
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: results/results.sarif
