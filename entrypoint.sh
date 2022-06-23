@@ -18,9 +18,6 @@ function run_orca_iac_scan() {
 
 function set_global_flags() {
   GLOBAL_FLAGS=()
-  if [ "$INPUT_PATH" ]; then
-    SCAN_FLAGS+=(--path "$INPUT_PATH")
-  fi
   if [ "$INPUT_EXIT_CODE" ]; then
     GLOBAL_FLAGS+=(--exit-code "$INPUT_EXIT_CODE")
   fi
@@ -34,6 +31,9 @@ function set_global_flags() {
 
 function set_iac_scan_flags() {
   SCAN_FLAGS=()
+  if [ "$INPUT_PATH" ]; then
+    SCAN_FLAGS+=(--path "$INPUT_PATH")
+  fi
   if [ "$INPUT_CLOUD_PROVIDER" ]; then
     SCAN_FLAGS+=(--cloud-provider "$INPUT_CLOUD_PROVIDER")
   fi
