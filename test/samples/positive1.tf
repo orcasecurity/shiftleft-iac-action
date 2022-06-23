@@ -1,3 +1,4 @@
+#comment
 resource "azurerm_resource_group" "positive1" {
   name     = "acceptanceTestResourceGroup1"
   location = "West US"
