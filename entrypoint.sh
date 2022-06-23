@@ -18,8 +18,8 @@ function run_orca_iac_scan() {
 
 function set_global_flags() {
   GLOBAL_FLAGS=()
-  if [ "$INPUT_API_TOKEN" ]; then
-    GLOBAL_FLAGS+=(--api-token "$INPUT_API_TOKEN")
+  if [ "$INPUT_PATH" ]; then
+    SCAN_FLAGS+=(--path "$INPUT_PATH")
   fi
   if [ "$INPUT_EXIT_CODE" ]; then
     GLOBAL_FLAGS+=(--exit-code "$INPUT_EXIT_CODE")
@@ -55,8 +55,8 @@ function set_iac_scan_flags() {
 }
 
 function set_env_vars() {
-  if [ "$INPUT_PATH" ]; then
-    export ORCA_SECURITY_API_TOKEN="$INPUT_PATH"
+  if [ "$INPUT_API_TOKEN" ]; then
+    export ORCA_SECURITY_API_TOKEN="$INPUT_API_TOKEN"
   fi
 }
 
