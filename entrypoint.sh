@@ -34,9 +34,6 @@ function set_global_flags() {
 
 function set_iac_scan_flags() {
   SCAN_FLAGS=()
-  if [ "$INPUT_PATH" ]; then
-    SCAN_FLAGS+=(--path "$INPUT_PATH")
-  fi
   if [ "$INPUT_CLOUD_PROVIDER" ]; then
     SCAN_FLAGS+=(--cloud-provider "$INPUT_CLOUD_PROVIDER")
   fi
@@ -57,6 +54,12 @@ function set_iac_scan_flags() {
   fi
 }
 
+function set_env_vars() {
+  if [ "$INPUT_PATH" ]; then
+    export ORCA_SECURITY_API_TOKEN="$INPUT_PATH"
+  fi
+}
+
 function validate_flags() {
   [[ -n "$INPUT_PATH" ]] || exit_with_err "path must be provided"
   [[ -n "$INPUT_API_TOKEN" ]] || exit_with_err "api_token must be provided"
@@ -65,6 +68,7 @@ function validate_flags() {
 
 function main() {
   validate_flags
+  set_env_vars
   set_global_flags
   set_iac_scan_flags
   run_orca_iac_scan
