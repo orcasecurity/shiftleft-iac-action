@@ -95,3 +95,13 @@ jobs:
         with:
           sarif_file: results/iac_scan.sarif
 ```
+
+The results list can be found on the security tab of your GitHub project and should look like the following image
+
+![](/assets/code_scanning_screen.png)
+
+An entry should describe the error and in which line it occurred 
+
+![](/assets/alerts_screen.png)
+
+
