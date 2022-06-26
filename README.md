@@ -30,6 +30,8 @@ jobs:
   orca-iac_scan:
     name: Orca IaC Scan
     runs-on: ubuntu-latest
+      env:
+      PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
@@ -39,7 +41,7 @@ jobs:
         uses: orcasecurity/shiftleft-iac-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key: "my-project-key"
+          project_key: ${{ env.PROJECT_KEY }}
           path:
             # scanning directories: ./terraform/ ./sub-dir/ and a file: ./Dockerfile
             "terraform,sub-dir,other-sub-dir/Dockerfile"
@@ -77,6 +79,8 @@ jobs:
   orca-iac_scan:
     name: Orca IaC Scan
     runs-on: ubuntu-latest
+    env:
+      PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -85,8 +89,8 @@ jobs:
         uses: orcasecurity/shiftleft-iac-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key: "my-project-key"
-          path: "terraform,sub-dir,other-sub-dir/Dockerfile"
+          project_key: ${{ env.PROJECT_KEY }}
+          path: <path to scan>
           format: "sarif"
           output:
             "results/iac_scan"
