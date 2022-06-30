@@ -1,4 +1,4 @@
-FROM ghcr.io/orcasecurity/orca-cli:1.1.0
+FROM ghcr.io/orcasecurity/orca-cli:1.1.1
 
 RUN apk --no-cache --update add bash \
     && rm -rf /var/cache/apk/*
