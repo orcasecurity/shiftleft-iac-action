@@ -23,6 +23,10 @@ inputs:
   project_key:
     description: "Project Key name"
     required: true
+  silent:
+    description: "Disable logs and warnings output"
+    required: false
+    default: "false"
   path:
     description: "Paths or directories to scan (comma-separated)"
     required: true
@@ -46,4 +50,7 @@ inputs:
     required: false
   preview_lines:
     description: "Number of lines to be display in CLI results"
+    required: false
+  console_output:
+    description: "Prints results to console in the provided format (only when --output is provided)"
     required: false

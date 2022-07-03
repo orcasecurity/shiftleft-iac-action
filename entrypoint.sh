@@ -27,6 +27,9 @@ function set_global_flags() {
   if [ "$INPUT_PROJECT_KEY" ]; then
     GLOBAL_FLAGS+=(--project-key "$INPUT_PROJECT_KEY")
   fi
+  if [ "$INPUT_SILENT" == "true" ]; then
+    GLOBAL_FLAGS+=(--silent)
+  fi
 }
 
 function set_iac_scan_flags() {
@@ -51,6 +54,9 @@ function set_iac_scan_flags() {
   fi
   if [ "$INPUT_TIMEOUT" ]; then
     SCAN_FLAGS+=(--timeout "$INPUT_TIMEOUT")
+  fi
+  if [ "$INPUT_CONSOLE_OUTPUT" ]; then
+    SCAN_FLAGS+=(--console-output "$INPUT_CONSOLE_OUTPUT")
   fi
 }
 
