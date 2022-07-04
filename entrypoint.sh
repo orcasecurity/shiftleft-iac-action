@@ -30,6 +30,9 @@ function set_global_flags() {
   if [ "$INPUT_SILENT" == "true" ]; then
     GLOBAL_FLAGS+=(--silent)
   fi
+  if [ "$INPUT_CONFIG" ]; then
+    GLOBAL_FLAGS+=(--config "$INPUT_CONFIG")
+  fi
 }
 
 function set_iac_scan_flags() {

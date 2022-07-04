@@ -65,6 +65,7 @@ jobs:
 | control_timeout | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60                            |
 | silent          | false                                      | Disable logs and warnings output                                                  | Boolean | No       | false                         |
 | console-output  | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli                           |
+| config          | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A                           |
 
 
 ## Upload SARIF report

@@ -54,3 +54,6 @@ inputs:
   console_output:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false
+  config:
+    description: "path to configuration file (json, yaml or toml)"
+    required: false
