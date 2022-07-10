@@ -40,7 +40,7 @@ inputs:
     description: "Format for displaying the results"
     required: false
   output:
-    description: "Output file name"
+    description: "Output directory"
     required: false
   platform:
     description: "Limit scan to the specified list of platforms (comma-separated)"

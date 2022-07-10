@@ -1,6 +1,7 @@
 name: Test Orca IaC action
 
 on:
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -18,11 +19,12 @@ jobs:
           path:
             "test"
           format:
-            "sarif"
+            "json"
           output:
-            "results/results.sarif"
-      - uses: github/codeql-action/upload-sarif@v2
+            "results/"
+          console_output: "true"
+      - uses: actions/upload-artifact@v3
         if: always()
         with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: results/results.sarif
+          name: orca-results
+          path: results/
