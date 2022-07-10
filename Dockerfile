@@ -10,7 +10,7 @@ COPY package*.json ./
 RUN npm ci
 # Copy the source code to the image:
 # TODO needed? why the js needs the source code?
-COPY . .
+COPY node_modules ./node_modules
 
 WORKDIR /
 COPY entrypoint.sh /entrypoint.sh

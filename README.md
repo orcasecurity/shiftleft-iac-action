@@ -13,6 +13,7 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
     - [Workflow](#workflow)
     - [Inputs](#inputs)
 - [Upload SARIF report](#upload-sarif-report)
+- [Annotations](#annotations)
 
 ## Usage
 
@@ -111,4 +112,7 @@ An entry should describe the error and in which line it occurred
 
 ![](/assets/alerts_screen.png)
 
+## Annotations
+After scanning, the action will add the results as annotations in a pull request:
 
+![](/assets/annotations_preview.png)
