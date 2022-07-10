@@ -8,8 +8,8 @@ WORKDIR /app
 COPY package*.json ./
 # Install dependencies using npm ci instead of npm install to avoid packages updating accidentally
 RUN npm ci
-# Copy the source code to the image:
-COPY . .
+# Copy the js source code to the image:
+COPY ./src ./src
 
 WORKDIR /
 COPY entrypoint.sh /entrypoint.sh
