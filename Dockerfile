@@ -8,8 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 # Install dependencies using npm ci instead of npm install to avoid packages updating accidentally
 RUN npm ci
-# Copy the source code to the image:
-# TODO needed? why the js needs the source code?
+# Copy the node_modules to the image:
 COPY node_modules ./node_modules
 
 WORKDIR /
