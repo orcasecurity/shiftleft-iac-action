@@ -68,14 +68,15 @@ jobs:
 | silent          | false                                      | Disable logs and warnings output                                                  | Boolean | No       | false                         |
 | console-output  | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli                           |
 | config          | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A                           |
+| show_annotations | true                          | show github annotations on pull requests                                   | Boolean  | No       | true                           |
 
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:
 
 ![](/assets/annotations_preview.png)
+>  **NOTE**  Annotations can be disabled by setting the "show_annotation" input to "false"
 
-Annotations can be disabled by setting the "show_annotation" input to "false"
 
 ## Upload SARIF report
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
