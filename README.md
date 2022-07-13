@@ -75,6 +75,8 @@ After scanning, the action will add the results as annotations in a pull request
 
 ![](/assets/annotations_preview.png)
 
+Annotations can be disabled by setting the "show_annotation" input to "false"
+
 ## Upload SARIF report
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
 > **NOTE:**  Code scanning is available for all public repositories. Code scanning is also available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for GitHub Advanced Security.
