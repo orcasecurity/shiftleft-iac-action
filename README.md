@@ -12,8 +12,9 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Upload SARIF report](#upload-sarif-report)
 - [Annotations](#annotations)
+- [Upload SARIF report](#upload-sarif-report)
+
 
 ## Usage
 
@@ -69,6 +70,11 @@ jobs:
 | config          | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A                           |
 
 
+## Annotations
+After scanning, the action will add the results as annotations in a pull request:
+
+![](/assets/annotations_preview.png)
+
 ## Upload SARIF report
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
 > **NOTE:**  Code scanning is available for all public repositories. Code scanning is also available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for GitHub Advanced Security.
@@ -114,8 +120,3 @@ The results list can be found on the security tab of your GitHub project and sho
 An entry should describe the error and in which line it occurred 
 
 ![](/assets/alerts_screen.png)
-
-## Annotations
-After scanning, the action will add the results as annotations in a pull request:
-
-![](/assets/annotations_preview.png)
