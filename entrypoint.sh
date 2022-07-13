@@ -48,11 +48,12 @@ function prepare_json_to_file_flags() {
   if [[ -z "${INPUT_FORMAT}" ]]; then
     # The default format should be provided together with the one we are adding
     FORMATS_FOR_JSON="cli,json"
-  fi
-  if [[ "${INPUT_FORMAT}" == *"json"* ]]; then
-    FORMATS_FOR_JSON="${INPUT_FORMAT}"
   else
-    FORMATS_FOR_JSON="$INPUT_FORMAT,json"
+    if [[ "${INPUT_FORMAT}" == *"json"* ]]; then
+      FORMATS_FOR_JSON="${INPUT_FORMAT}"
+    else
+      FORMATS_FOR_JSON="${INPUT_FORMAT},json"
+    fi
   fi
 
   # Used during the annotation process
