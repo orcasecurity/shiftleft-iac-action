@@ -101,8 +101,11 @@ function validate_flags() {
 }
 
 annotate() {
+  if [ "${INPUT_SHOW_ANNOTATIONS}" == "false" ]; then
+    exit "${ORCA_EXIT_CODE}"
+  fi
   mkdir -p "/app/${OUTPUT_FOR_JSON}"
-  cp  "${OUTPUT_FOR_JSON}/iac.json" "/app/${OUTPUT_FOR_JSON}/"
+  cp "${OUTPUT_FOR_JSON}/iac.json" "/app/${OUTPUT_FOR_JSON}/"
   cd /app || exit_with_err "error during annotations initiation"
   npm run build --if-present
   node dist/index.js

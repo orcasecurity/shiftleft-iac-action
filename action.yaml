@@ -57,3 +57,7 @@ inputs:
   config:
     description: "path to configuration file (json, yaml or toml)"
     required: false
+  show_annotations:
+    description: "show github annotations on pull requests"
+    required: false
+    default: "true"
