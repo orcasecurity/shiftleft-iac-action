@@ -75,7 +75,7 @@ jobs:
 After scanning, the action will add the results as annotations in a pull request:
 
 ![](/assets/annotations_preview.png)
->  **NOTE**  Annotations can be disabled by setting the "show_annotation" input to "false"
+>  **NOTE:**  Annotations can be disabled by setting the "show_annotation" input to "false"
 
 
 ## Upload SARIF report
