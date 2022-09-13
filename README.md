@@ -61,7 +61,6 @@ jobs:
 | output           | ./results                                  | Output file name                                                                  | String  | No       | N/A                           |
 | platform         | Terraform,CloudFormation                   | Limit scan to the specified list of platforms (comma-separated)                   | String  | No       | All supported platforms       |
 | cloud_provider   | aws,gcp                                    | Limit scan to the specified list of cloud providers                               | String  | No       | All supported cloud providers |
-| preview_lines    | 5                                          | Number of lines to be display in CLI results (min: 1, max: 30)                    | Integer | No       | 3                             |
 | no_color         | false                                      | Disable color output                                                              | Boolean | No       | false                         |
 | exit_code        | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3                             |
 | control_timeout  | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60                            |
