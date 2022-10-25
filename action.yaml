@@ -27,6 +27,20 @@ inputs:
     description: "Disable logs and warnings output"
     required: false
     default: "false"
+  baseline_context_key:
+    description: "Use this context key in case of no autodetect is configured on project"
+    required: false
+  disable_baseline:
+    description: "Do not compare to baseline on this scan"
+    required: false
+    default: "false"
+  sync_baseline:
+    description: "Sync baseline base on this flag"
+    required: false
+  disable_err_report:
+    description: "Suppress error reporting to the monitoring platform"
+    required: false
+    default: "false"
   path:
     description: "Paths or directories to scan (comma-separated)"
     required: true
@@ -48,9 +62,19 @@ inputs:
   control_timeout:
     description: "Number of seconds the control has to execute before being canceled"
     required: false
+  ignore_failed_exec_controls:
+    description: "Ignore any failures that happened while executing any of the controls"
+    required: false
+  timeout:
+    description: 'Set the maximum duration for the CLI execution. valid time units ("s", "m", "h")'
+    required: false
   preview_lines:
     description: "Number of lines to be display in CLI results"
     required: false
+  show_failed_issues_only:
+    description: "Show only failed issues in CLI results"
+    required: false
+    default: "false"
   console_output:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false
