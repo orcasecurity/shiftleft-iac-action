@@ -31,6 +31,18 @@ function set_global_flags() {
   if [ "${INPUT_CONFIG}" ]; then
     GLOBAL_FLAGS+=(--config "${INPUT_CONFIG}")
   fi
+  if [ "${INPUT_BASELINE_CONTEXT_KEY}" ]; then
+    GLOBAL_FLAGS+=(--baseline-context-key "${INPUT_BASELINE_CONTEXT_KEY}")
+  fi
+  if [ "${INPUT_DISABLE_BASELINE}" == "true" ]; then
+    GLOBAL_FLAGS+=(--disable-baseline)
+  fi
+  if [ "${INPUT_DISABLE_ERR_REPORT}" == "true" ]; then
+    GLOBAL_FLAGS+=(--disable-err-report)
+  fi
+  if [ "${INPUT_SYNC_BASELINE}" ]; then
+    GLOBAL_FLAGS+=(--sync-baseline "${INPUT_SYNC_BASELINE}")
+  fi
 }
 
 # Json format must be reported and be stored in a file for github annotations
@@ -74,8 +86,20 @@ function set_iac_scan_flags() {
   if [ "${INPUT_PLATFORM}" ]; then
     SCAN_FLAGS+=(--platform "${INPUT_PLATFORM}")
   fi
+  if [ "${INPUT_CONTROL_TIMEOUT}" ]; then
+    SCAN_FLAGS+=(--control_timeout "${INPUT_CONTROL_TIMEOUT}")
+  fi
   if [ "${INPUT_TIMEOUT}" ]; then
     SCAN_FLAGS+=(--timeout "${INPUT_TIMEOUT}")
+  fi
+  if [ "${INPUT_IGNORE_FAILED_EXEC_CONTROLS}" == "true" ]; then
+    SCAN_FLAGS+=(--ignore-failed-exec-controls)
+  fi
+  if [ "${INPUT_PREVIEW_LINES}" ]; then
+    SCAN_FLAGS+=(--preview-lines "${INPUT_PREVIEW_LINES}")
+  fi
+  if [ "${INPUT_SHOW_FAILED_ISSUES_ONLY}" = "true" ]; then
+    SCAN_FLAGS+=(--show-failed-issues-only)
   fi
   if [ "${FORMATS_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--format "${FORMATS_FOR_JSON}")
