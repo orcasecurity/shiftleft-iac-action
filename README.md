@@ -32,7 +32,7 @@ jobs:
   orca-iac_scan:
     name: Orca IaC Scan
     runs-on: ubuntu-latest
-      env:
+    env:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
