@@ -32,7 +32,7 @@ jobs:
   orca-iac_scan:
     name: Orca IaC Scan
     runs-on: ubuntu-latest
-      env:
+    env:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -108,11 +108,12 @@ jobs:
           path: <path to scan>
           format: "sarif"
           output:
-            "results/iac_scan"
+            "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
+        if: always()
         with:
-          sarif_file: results/iac_scan.sarif
+          sarif_file: results/iac.sarif
 ```
 
 The results list can be found on the security tab of your GitHub project and should look like the following image
