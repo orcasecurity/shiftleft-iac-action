@@ -1,4 +1,4 @@
-FROM ghcr.io/orcasecurity/orca-cli:1.5.2
+FROM ghcr.io/orcasecurity/orca-cli:1
 
 RUN apk --no-cache --update add bash nodejs npm
 
