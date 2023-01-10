@@ -130,8 +130,8 @@ annotate() {
     exit "${ORCA_EXIT_CODE}"
   fi
   mkdir -p "/app/${OUTPUT_FOR_JSON}"
-  cp "${OUTPUT_FOR_JSON}/iac.json" "/app/${OUTPUT_FOR_JSON}/"
-  cd /app || exit_with_err "error during annotations initiation"
+  cp "${OUTPUT_FOR_JSON}/iac.json" "/app/${OUTPUT_FOR_JSON}/" || exit_with_err "error during annotations initiation"
+  cd /app
   npm run build --if-present
   node dist/index.js
 }

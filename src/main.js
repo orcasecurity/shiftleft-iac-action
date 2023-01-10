@@ -24,6 +24,7 @@ function main() {
     setWorkflowStatus(process.env.ORCA_EXIT_CODE);
   } catch (e) {
     console.error(e);
+    setWorkflowStatus(process.env.ORCA_EXIT_CODE);
   }
 }
 
