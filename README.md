@@ -94,6 +94,8 @@ jobs:
   orca-iac_scan:
     name: Orca IaC Scan
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
     env:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
