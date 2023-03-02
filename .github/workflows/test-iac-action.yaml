@@ -16,7 +16,7 @@ jobs:
           project_key:
             "default"
           path:
-            "path"
+            "test"
           format:
             "json"
           output:
