@@ -58,7 +58,7 @@ jobs:
 | path             | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                    | String  | Yes      | N/A                           |
 | exclude_paths    | ./notToBeScanned/,example.tf               | List of paths to be excluded from scan (comma-separated)                          | String  | No       | N/A                           |
 | format           | json                                       | Format for displaying the results                                                 | String  | No       | cli                           |
-| output           | results/                                   | Output directory                                                                  | String  | No       | results/                      |
+| output           | results/                                   | Output directory for scan results                                                 | String  | No       | N/A                           |
 | platform         | Terraform,CloudFormation                   | Limit scan to the specified list of platforms (comma-separated)                   | String  | No       | All supported platforms       |
 | cloud_provider   | aws,gcp                                    | Limit scan to the specified list of cloud providers                               | String  | No       | All supported cloud providers |
 | no_color         | false                                      | Disable color output                                                              | Boolean | No       | false                         |
