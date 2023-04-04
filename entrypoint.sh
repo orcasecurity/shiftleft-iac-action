@@ -110,6 +110,12 @@ function set_iac_scan_flags() {
   if [ "${CONSOLE_OUTPUT_FOR_JSON}" ]; then
     SCAN_FLAGS+=(--console-output="${CONSOLE_OUTPUT_FOR_JSON}")
   fi
+  if [ "${INPUT_CUSTOM_CONTROLS}" ]; then
+    SCAN_FLAGS+=(--custom-controls "${INPUT_CUSTOM_CONTROLS}")
+  fi
+  if [ "${INPUT_GENERATE_REGO_INPUT}" ]; then
+    SCAN_FLAGS+=(--generate-rego-input "${INPUT_GENERATE_REGO_INPUT}")
+  fi
 }
 
 function set_env_vars() {

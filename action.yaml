@@ -85,3 +85,9 @@ inputs:
     description: "show github annotations on pull requests"
     required: false
     default: "true"
+  custom_controls:
+    description: "paths to custom controls (comma-separated)"
+    required: false
+  generate_rego_input:
+    description: "Generates a JSON file in the desired location, containing an internal representation of scanned files, which can be utilized as input for Rego policies"
+    required: false
