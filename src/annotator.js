@@ -11,7 +11,7 @@ function getDetail(controlResults, file) {
 
 function extractAnnotations(results) {
     let annotations = [];
-    for (const controlResults of results.results) {
+    for (const controlResults of results.results || []) {
         for (const finding of controlResults.findings) {
             for (const file of finding.files) {
                 annotations.push({
