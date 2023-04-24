@@ -51,23 +51,25 @@ jobs:
 
 ### Inputs
 
-| Variable         | Example Value &nbsp;                       | Description &nbsp;                                                                | Type    | Required | Default                       |
-|------------------|--------------------------------------------|-----------------------------------------------------------------------------------|---------|----------|-------------------------------|
-| api_token        |                                            | Orca API Token used for Authentication                                            | String  | Yes      | N/A                           |
-| project_key      | my-project-key                             | Project Key name                                                                  | String  | Yes      | N/A                           |
-| path             | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                    | String  | Yes      | N/A                           |
-| exclude_paths    | ./notToBeScanned/,example.tf               | List of paths to be excluded from scan (comma-separated)                          | String  | No       | N/A                           |
-| format           | json                                       | Format for displaying the results                                                 | String  | No       | cli                           |
-| output           | results/                                   | Output directory for scan results                                                 | String  | No       | N/A                           |
-| platform         | Terraform,CloudFormation                   | Limit scan to the specified list of platforms (comma-separated)                   | String  | No       | All supported platforms       |
-| cloud_provider   | aws,gcp                                    | Limit scan to the specified list of cloud providers                               | String  | No       | All supported cloud providers |
-| no_color         | false                                      | Disable color output                                                              | Boolean | No       | false                         |
-| exit_code        | 10                                         | Exit code for failed execution due to policy violations                           | Integer | No       | 3                             |
-| control_timeout  | 30                                         | Number of seconds the control has to execute before being canceled                | Integer | No       | 60                            |
-| silent           | false                                      | Disable logs and warnings output                                                  | Boolean | No       | false                         |
-| console_output   | json                                       | Prints results to console in the provided format (only when --output is provided) | String  | No       | cli                           |
-| config           | config.json                                | path to configuration file (json, yaml or toml)                                   | String  | No       | N/A                           |
-| show_annotations | true                                       | show github annotations on pull requests                                          | Boolean | No       | true                          |
+| Variable            | Example Value &nbsp;                       | Description &nbsp;                                                                                      | Type    | Required | Default                       |
+|---------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|----------|-------------------------------|
+| api_token           |                                            | Orca API Token used for Authentication                                                                  | String  | Yes      | N/A                           |
+| project_key         | my-project-key                             | Project Key name                                                                                        | String  | Yes      | N/A                           |
+| path                | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                                          | String  | Yes      | N/A                           |
+| exclude_paths       | ./notToBeScanned/,example.tf               | List of paths to be excluded from scan (comma-separated)                                                | String  | No       | N/A                           |
+| format              | json                                       | Format for displaying the results                                                                       | String  | No       | cli                           |
+| output              | results/                                   | Output directory for scan results                                                                       | String  | No       | N/A                           |
+| platform            | Terraform,CloudFormation                   | Limit scan to the specified list of platforms (comma-separated)                                         | String  | No       | All supported platforms       |
+| cloud_provider      | aws,gcp                                    | Limit scan to the specified list of cloud providers                                                     | String  | No       | All supported cloud providers |
+| no_color            | false                                      | Disable color output                                                                                    | Boolean | No       | false                         |
+| exit_code           | 10                                         | Exit code for failed execution due to policy violations                                                 | Integer | No       | 3                             |
+| control_timeout     | 30                                         | Number of seconds the control has to execute before being canceled                                      | Integer | No       | 60                            |
+| silent              | false                                      | Disable logs and warnings output                                                                        | Boolean | No       | false                         |
+| console_output      | json                                       | Prints results to console in the provided format (only when --output is provided)                       | String  | No       | cli                           |
+| config              | config.json                                | path to configuration file (json, yaml or toml)                                                         | String  | No       | N/A                           |
+| show_annotations    | true                                       | show github annotations on pull requests                                                                | Boolean | No       | true                          |
+| custom_controls     | ./custom_control1/,./custom_control2       | paths to custom controls (comma-separated)                                                              | String  | No       | N/A                           |
+| generate_rego_input | ./input.json                               | Generates an internal representation of scanned files, which can be utilized as input for Rego policies | String  | No       | N/A                           |
 
 
 ## Annotations
