@@ -1,12 +1,35 @@
 const core = require("@actions/core");
 
 function getDetail(controlResults, file) {
-    let details = controlResults.control["details"];
+    let details = wrapWords(controlResults.control["details"]);
+    let message = `Details:\n${details}`;
     let recommendation = file["expected_value"];
     if (recommendation) {
-        details = `${details}\n\nRecommendation:\n${recommendation}`
+        recommendation = wrapWords(recommendation);
+        message = `${message}\n\nRecommendation:\n${recommendation}`
     }
-    return details
+    return message
+}
+
+function wrapWords(input, maxLineLength = 80) {
+    const words = input.split(/\s+/);
+    const lines = [];
+    let currentLine = '';
+
+    for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        if (currentLine.length + word.length > maxLineLength) {
+            lines.push(currentLine.trim());
+            currentLine = '';
+        }
+        currentLine += (currentLine ? ' ' : '') + word;
+    }
+
+    if (currentLine) {
+        lines.push(currentLine.trim());
+    }
+
+    return lines.join('\n');
 }
 
 function extractAnnotations(results) {
