@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "positive1" {
   location = "West US"
 }
 
-resource "azurerm_sql_server" "positive2" {
+resource "azurerm_sql_server" "positive3" {
   name                         = "mysqlserver1"
   resource_group_name          = "acceptanceTestResourceGroup1"
   location                     = "West US"
@@ -12,7 +12,7 @@ resource "azurerm_sql_server" "positive2" {
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-resource "azurerm_sql_active_directory_administrator" "positive3" {
+resource "azurerm_sql_active_directory_administrator" "positive4" {
   server_name         = "mysqlserver2"
   resource_group_name = "acceptanceTestResourceGroup1"
   login               = "sqladmin"
