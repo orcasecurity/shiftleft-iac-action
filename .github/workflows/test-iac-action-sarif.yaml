@@ -1,0 +1,31 @@
+name: Test Orca IaC action - Sarif
+
+on:
+  workflow_dispatch:
+
+jobs:
+  iac_scan_job:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan IaC
+        uses: ./
+        with:
+          api_token:
+            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key:
+            "default"
+          path:
+            "test"
+          format:
+            "sarif"
+          output:
+            "results/"
+          console_output: "cli"
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        if: always()
+        with:
+          sarif_file: results/iac.sarif
