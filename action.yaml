@@ -1,5 +1,5 @@
-name: "Orca IaC Scan"
-description: "Configures Orca CLI to run IaC security scan on your code"
+name: "Orca Security - IaC Security"
+description: "Configures Orca CLI to run Infrastructure as Code security scans"
 branding:
   icon: "shield"
   color: "green"
