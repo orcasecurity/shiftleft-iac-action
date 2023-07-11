@@ -26,6 +26,6 @@ jobs:
           console_output: "cli"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: always()
+        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
         with:
           sarif_file: results/iac.sarif

@@ -12,6 +12,9 @@ function run_orca_iac_scan() {
   echo orca-cli "${GLOBAL_FLAGS[@]}" iac scan "${SCAN_FLAGS[@]}"
   orca-cli "${GLOBAL_FLAGS[@]}" iac scan "${SCAN_FLAGS[@]}"
   export ORCA_EXIT_CODE=$?
+
+  # save exit code on output
+  echo "exitcode=${ORCA_EXIT_CODE}" >>"$GITHUB_OUTPUT"
 }
 
 function set_global_flags() {

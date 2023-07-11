@@ -9,11 +9,14 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 
 ## Table of Contents
 
-- [Usage](#usage)
+- [Orca Shift Left Security Action](#orca-shift-left-security-action)
+      - [More info can be found in the official Orca Shift Left Security documentation](#more-info-can-be-found-in-the-official-orca-shift-left-security-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Annotations](#annotations)
-- [Upload SARIF report](#upload-sarif-report)
+  - [Annotations](#annotations)
+  - [Upload SARIF report](#upload-sarif-report)
 
 
 ## Usage
@@ -115,7 +118,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: always()
+        if: ${{ steps.orcasecurity.outputs.exitcode != 1 }}
         with:
           sarif_file: results/iac.sarif
 ```
