@@ -9,11 +9,14 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 
 ## Table of Contents
 
-- [Usage](#usage)
+- [Orca Shift Left Security Action](#orca-shift-left-security-action)
+      - [More info can be found in the official Orca Shift Left Security documentation](#more-info-can-be-found-in-the-official-orca-shift-left-security-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
     - [Workflow](#workflow)
     - [Inputs](#inputs)
-- [Annotations](#annotations)
-- [Upload SARIF report](#upload-sarif-report)
+  - [Annotations](#annotations)
+  - [Upload SARIF report](#upload-sarif-report)
 
 
 ## Usage
@@ -23,11 +26,15 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 ```yaml
 name: Sample Orca IaC Scan Workflow
 on:
-  # Trigger the workflow on push request,
-  # but only for the main branch
+  # Scan for each push event on your protected branch. If you have a different branch configured, please adjust the configuration accordingly by replacing 'main'.
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  # NOTE: To enable scanning for pull requests, uncomment the section below.
+  #pull_request:
+    #branches: [ "main" ]
+  # NOTE: To schedule a daily scan at midnight, uncomment the section below.
+  #schedule:
+    #- cron: '0 0 * * *'
 jobs:
   orca-iac_scan:
     name: Orca IaC Scan
