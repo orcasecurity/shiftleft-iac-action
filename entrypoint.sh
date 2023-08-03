@@ -14,7 +14,7 @@ function run_orca_iac_scan() {
   export ORCA_EXIT_CODE=$?
 
   # save exit code on output
-  echo "exitcode=${ORCA_EXIT_CODE}" >>"$GITHUB_OUTPUT"
+  echo "exit_code=${ORCA_EXIT_CODE}" >>"$GITHUB_OUTPUT"
 }
 
 function set_global_flags() {

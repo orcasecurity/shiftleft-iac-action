@@ -93,5 +93,5 @@ inputs:
     required: false
 
 outputs:
-    exitcode:
+    exit_code:
       description: "The status of the scan"
