@@ -112,6 +112,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Orca IaC Scan
+        id: orcasecurity_iac_scan
         uses: orcasecurity/shiftleft-iac-action@v1
         with:
           api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
@@ -122,7 +123,7 @@ jobs:
             "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
-        if: always()
+        if: ${{ always() && steps.orcasecurity_iac_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/iac.sarif
 ```
