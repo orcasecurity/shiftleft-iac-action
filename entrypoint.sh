@@ -46,6 +46,9 @@ function set_global_flags() {
   if [ "${INPUT_SYNC_BASELINE}" ]; then
     GLOBAL_FLAGS+=(--sync-baseline "${INPUT_SYNC_BASELINE}")
   fi
+  if [ "${INPUT_DISPLAY_NAME}" ]; then
+    GLOBAL_FLAGS+=(--display-name "${INPUT_DISPLAY_NAME}")
+  fi
 }
 
 # Json format must be reported and be stored in a file for github annotations
@@ -89,6 +92,9 @@ function set_iac_scan_flags() {
   if [ "${INPUT_PLATFORM}" ]; then
     SCAN_FLAGS+=(--platform "${INPUT_PLATFORM}")
   fi
+  if [ "${INPUT_EXCLUDE_PLATFORM}" ]; then
+    SCAN_FLAGS+=(--exclude-platform "${INPUT_EXCLUDE_PLATFORM}")
+  fi
   if [ "${INPUT_CONTROL_TIMEOUT}" ]; then
     SCAN_FLAGS+=(--control_timeout "${INPUT_CONTROL_TIMEOUT}")
   fi
@@ -118,6 +124,15 @@ function set_iac_scan_flags() {
   fi
   if [ "${INPUT_GENERATE_REGO_INPUT}" ]; then
     SCAN_FLAGS+=(--generate-rego-input "${INPUT_GENERATE_REGO_INPUT}")
+  fi
+  if [ "${INPUT_INCLUDE_COMPRESSED_FILES}" = "true" ]; then
+    SCAN_FLAGS+=(--include-compressed-files)
+  fi
+  if [ "${INPUT_MAX_FILE_SIZE}" ]; then
+    SCAN_FLAGS+=(--max-file-size "${INPUT_MAX_FILE_SIZE}")
+  fi
+  if [ "${INPUT_TERRAFORM_VARS_PATH}" ]; then
+    SCAN_FLAGS+=(--terraform-vars-path "${INPUT_TERRAFORM_VARS_PATH}")
   fi
 }
 

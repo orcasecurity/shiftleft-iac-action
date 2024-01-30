@@ -59,6 +59,9 @@ inputs:
   platform:
     description: "Limit scan to the specified list of platforms (comma-separated)"
     required: false
+  exclude_platform:
+    description: "Exclude the specified list of platforms from scan (comma-separated)"
+    required: false
   control_timeout:
     description: "Number of seconds the control has to execute before being canceled"
     required: false
@@ -79,17 +82,30 @@ inputs:
     description: "Prints results to console in the provided format (only when --output is provided)"
     required: false
   config:
-    description: "path to configuration file (json, yaml or toml)"
+    description: "Path to configuration file (json, yaml or toml)"
     required: false
   show_annotations:
-    description: "show github annotations on pull requests"
+    description: "Show github annotations on pull requests"
     required: false
     default: "true"
   custom_controls:
-    description: "paths to custom controls (comma-separated)"
+    description: "Paths to custom controls (comma-separated)"
     required: false
   generate_rego_input:
     description: "Generates a JSON file in the desired location, containing an internal representation of scanned files, which can be utilized as input for Rego policies"
+    required: false
+  terraform_vars_path:
+    description: "Path where terraform variables are present"
+    required: false
+  include_compressed_files:
+    description: "Include compressed files in scan"
+    required: false
+    default: "false"
+  max_file_size:
+    description: "Maximum file size to be scanned in MB. Bigger files will be skipped"
+    required: false
+  display_name:
+    description: "Scan log display name (on Orca platform)"
     required: false
 
 outputs:
