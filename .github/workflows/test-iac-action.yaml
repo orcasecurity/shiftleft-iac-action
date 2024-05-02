@@ -3,27 +3,30 @@ name: Test Orca IaC action
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   iac_scan_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # ratchet:actions/checkout@v3
       - name: Scan IaC
         uses: ./
         with:
-          api_token:
-            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key:
-            "default"
-          path:
-            "test"
-          format:
-            "json"
-          output:
-            "results/"
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: "default"
+          path: "test"
+          format: "json"
+          output: "results/"
           console_output: "cli"
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # ratchet:actions/upload-artifact@v3
         if: always()
         with:
           name: orca-results
           path: results/
+
+
+
+
+
