@@ -107,6 +107,13 @@ inputs:
   display_name:
     description: "Scan log display name (on Orca platform)"
     required: false
+  debug:
+    description: "Debug mode"
+    required: false
+    default: "false"
+  log_path:
+    description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
+    required: false
 
 outputs:
     exit_code:
