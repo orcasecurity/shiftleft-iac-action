@@ -49,6 +49,12 @@ function set_global_flags() {
   if [ "${INPUT_DISPLAY_NAME}" ]; then
     GLOBAL_FLAGS+=(--display-name "${INPUT_DISPLAY_NAME}")
   fi
+  if [ "${INPUT_DEBUG}" == "true" ]; then
+    GLOBAL_FLAGS+=(--debug)
+  fi
+  if [ "${INPUT_LOG_PATH}" ]; then
+    GLOBAL_FLAGS+=(--log-path "${INPUT_LOG_PATH}")
+  fi
 }
 
 # Json format must be reported and be stored in a file for github annotations

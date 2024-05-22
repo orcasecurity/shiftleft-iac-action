@@ -83,6 +83,8 @@ jobs:
 | max_file_size            | 3                                          | Maximum file size to be scanned in MB. Bigger files will be skipped                                     | Integer | No       | 5                             |
 | terraform_vars_path      | /terraform-vars-path/terraform-vars.tfvars | Path where terraform variables are present                                                              | String  | No       | N/A                           |
 | display_name             | custom-display-name                        | Scan log display name (on Orca platform)                                                                | String  | No       | N/A                           |
+| debug                    | true                                       | Debug mode                                                                                              | Boolean | No       | false                         |
+| log_path                 | results/                                   | The directory path to specify where the logs should be written to on debug mode.                        | String  | No       | working directory             |
 
 ## Annotations
 After scanning, the action will add the results as annotations in a pull request:
