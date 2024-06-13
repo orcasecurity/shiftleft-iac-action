@@ -44,7 +44,7 @@ jobs:
     steps:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
@@ -116,7 +116,7 @@ jobs:
       PROJECT_KEY: <project key> # Set the desired project to run the cli scanning with
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run Orca IaC Scan
         id: orcasecurity_iac_scan
@@ -129,7 +129,7 @@ jobs:
           output:
             "results/"
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_iac_scan.outputs.exit_code != 1 }}
         with:
           sarif_file: results/iac.sarif
