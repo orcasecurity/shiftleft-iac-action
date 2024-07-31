@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shiftleft-iac-action
+  description: Orca Security - IaC Security GitHub Action
+  labels:
+    orca.security/is-production: "true"
+    orca.security/repo-is-fork: "false"
+    orca.security/repo-visibility: public
+  annotations:
+    github.com/project-slug: orcasecurity/shiftleft-iac-action
+    github.com/team-slug: orcasecurity/shiftleft
+    orca.security/jira-project-key: CICD
+    orca.security/jira-project-name: Shift Left - SLC
+    orca.security/repo-created-at: "2022-06-13T09:39:20Z"
+    orca.security/repo-default-branch: main
+    orca.security/repo-main-language: Shell
+  links:
+    - url: https://github.com/orcasecurity/shiftleft-iac-action
+      title: Source Code
+      icon: github
+      type: url
+    - url: https://orcasecurity.atlassian.net/jira/software/c/projects/CICD/boards/103
+      title: Jira
+      icon: grading
+      type: url
+    - url: https://orca.security/
+      title: Homepage
+      icon: web
+      type: url
+spec:
+  type: repository
+  lifecycle: production
+  owner: shiftleft

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: catalog-locations-shiftleft-iac-action
+  labels:
+    repository: shiftleft-iac-action
+  annotations:
+    github.com/project-slug: orcasecurity/shiftleft-iac-action
+spec:
+  presence: optional
+  targets: []
