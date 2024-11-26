@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "build": "ncc build src/main.js",
-    "format": "prettier --write **/*.js"
+    "lint": "npx prettier --check . && npx eslint .",
+    "lint:fix": "npx prettier --list-different --write . && npx eslint . --fix",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,15 @@
   },
   "homepage": "https://github.com/orcasecurity/shiftleft-iac-action#readme",
   "dependencies": {
-    "@actions/core": "^1.9.1"
+    "@actions/core": "^1.11.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.34.0",
-    "prettier": "^2.7.1"
+    "@eslint/js": "^9.15.0",
+    "@types/jest": "^29.5.0",
+    "@vercel/ncc": "^0.38.3",
+    "eslint": "^9.15.0",
+    "jest": "^29.7.0",
+    "js-yaml": "^4.1.0",
+    "prettier": "^3.3.3"
   }
 }

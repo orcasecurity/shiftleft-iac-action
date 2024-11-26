@@ -34,17 +34,8 @@ function set_global_flags() {
   if [ "${INPUT_CONFIG}" ]; then
     GLOBAL_FLAGS+=(--config "${INPUT_CONFIG}")
   fi
-  if [ "${INPUT_BASELINE_CONTEXT_KEY}" ]; then
-    GLOBAL_FLAGS+=(--baseline-context-key "${INPUT_BASELINE_CONTEXT_KEY}")
-  fi
-  if [ "${INPUT_DISABLE_BASELINE}" == "true" ]; then
-    GLOBAL_FLAGS+=(--disable-baseline)
-  fi
   if [ "${INPUT_DISABLE_ERR_REPORT}" == "true" ]; then
     GLOBAL_FLAGS+=(--disable-err-report)
-  fi
-  if [ "${INPUT_SYNC_BASELINE}" ]; then
-    GLOBAL_FLAGS+=(--sync-baseline "${INPUT_SYNC_BASELINE}")
   fi
   if [ "${INPUT_DISPLAY_NAME}" ]; then
     GLOBAL_FLAGS+=(--display-name "${INPUT_DISPLAY_NAME}")
@@ -102,7 +93,7 @@ function set_iac_scan_flags() {
     SCAN_FLAGS+=(--exclude-platform "${INPUT_EXCLUDE_PLATFORM}")
   fi
   if [ "${INPUT_CONTROL_TIMEOUT}" ]; then
-    SCAN_FLAGS+=(--control_timeout "${INPUT_CONTROL_TIMEOUT}")
+    SCAN_FLAGS+=(--control-timeout "${INPUT_CONTROL_TIMEOUT}")
   fi
   if [ "${INPUT_TIMEOUT}" ]; then
     SCAN_FLAGS+=(--timeout "${INPUT_TIMEOUT}")
