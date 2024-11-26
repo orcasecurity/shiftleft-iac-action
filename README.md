@@ -5,19 +5,13 @@ for [Orca Shift Left Security](https://orca.security/solutions/shift-left-securi
 
 #### More info can be found in the official Orca Shift Left Security<a href="https://docs.orcasecurity.io/v1/docs/shift-left-security"> documentation</a>
 
-
-
 ## Table of Contents
 
-- [Orca Shift Left Security Action](#orca-shift-left-security-action)
-      - [More info can be found in the official Orca Shift Left Security documentation](#more-info-can-be-found-in-the-official-orca-shift-left-security-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Usage](#usage)
-    - [Workflow](#workflow)
-    - [Inputs](#inputs)
-  - [Annotations](#annotations)
-  - [Upload SARIF report](#upload-sarif-report)
-
+- [Usage](#usage)
+  - [Workflow](#workflow)
+  - [Inputs](#inputs)
+- [Annotations](#annotations)
+- [Upload SARIF report](#upload-sarif-report)
 
 ## Usage
 
@@ -28,13 +22,13 @@ name: Sample Orca IaC Scan Workflow
 on:
   # Scan for each push event on your protected branch. If you have a different branch configured, please adjust the configuration accordingly by replacing 'main'.
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   # NOTE: To enable scanning for pull requests, uncomment the section below.
   #pull_request:
-    #branches: [ "main" ]
+  #branches: [ "main" ]
   # NOTE: To schedule a daily scan at midnight, uncomment the section below.
   #schedule:
-    #- cron: '0 0 * * *'
+  #- cron: '0 0 * * *'
 jobs:
   orca-iac_scan:
     name: Orca IaC Scan
@@ -59,7 +53,7 @@ jobs:
 ### Inputs
 
 | Variable                 | Example Value &nbsp;                       | Description &nbsp;                                                                                      | Type    | Required | Default                       |
-|--------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|----------|-------------------------------|
+| ------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------------------------- |
 | api_token                |                                            | Orca API Token used for Authentication                                                                  | String  | Yes      | N/A                           |
 | project_key              | my-project-key                             | Project Key name                                                                                        | String  | Yes      | N/A                           |
 | path                     | terraform,sub-dir,other-sub-dir/Dockerfile | Paths or directories to scan (comma-separated)                                                          | String  | Yes      | N/A                           |
@@ -87,15 +81,18 @@ jobs:
 | log_path                 | results/                                   | The directory path to specify where the logs should be written to on debug mode.                        | String  | No       | working directory             |
 
 ## Annotations
+
 After scanning, the action will add the results as annotations in a pull request:
 
 ![](/assets/annotations_preview.png)
->  **NOTE:**  Annotations can be disabled by setting the "show_annotation" input to "false"
 
+> **NOTE:** Annotations can be disabled by setting the "show_annotation" input to "false"
 
 ## Upload SARIF report
+
 If you have [GitHub code scanning](https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) available you can use Orca Shift Left Security as a scanning tool
-> **NOTE:**  Code scanning is available for all public repositories. Code scanning is also available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for GitHub Advanced Security.
+
+> **NOTE:** Code scanning is available for all public repositories. Code scanning is also available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for GitHub Advanced Security.
 
 Configuration:
 
@@ -126,8 +123,7 @@ jobs:
           project_key: ${{ env.PROJECT_KEY }}
           path: <path to scan>
           format: "sarif"
-          output:
-            "results/"
+          output: "results/"
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         if: ${{ always() && steps.orcasecurity_iac_scan.outputs.exit_code != 1 }}
@@ -139,6 +135,6 @@ The results list can be found on the security tab of your GitHub project and sho
 
 ![](/assets/code_scanning.png)
 
-An entry should describe the error and in which line it occurred 
+An entry should describe the error and in which line it occurred
 
 ![](/assets/code_scanning_alert.png)

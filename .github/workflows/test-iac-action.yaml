@@ -9,7 +9,7 @@ jobs:
   iac_scan_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # ratchet:actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4.2.2
       - name: Scan IaC
         uses: ./
         with:
@@ -19,13 +19,8 @@ jobs:
           format: "json"
           output: "results/"
           console_output: "cli"
-      - uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # ratchet:actions/upload-artifact@v4
+      - uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # ratchet:actions/upload-artifact@v4.4.3
         if: always()
         with:
           name: orca-results
           path: results/
-
-
-
-
-
