@@ -39,6 +39,10 @@ jobs:
       # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout Repository
         uses: actions/checkout@v4
+        # Note: This configuration should be used if you enable pull request scans
+        # with:
+          # fetch-depth: 0
+          # ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Run Orca IaC Scan
         uses: orcasecurity/shiftleft-iac-action@v1
