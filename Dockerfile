@@ -1,6 +1,5 @@
 FROM ghcr.io/orcasecurity/orca-cli:1
-
-RUN apk --no-cache --update add bash nodejs npm
+RUN apk --no-cache --update add bash nodejs npm sqlite sqlite-dev
 
 WORKDIR /app
 # Docker tries to cache each layer as much as possible, to increase building speed.
