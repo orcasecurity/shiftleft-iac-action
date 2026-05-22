@@ -79,6 +79,7 @@ jobs:
 | display_name             | custom-display-name                        | Scan log display name (on Orca platform)                                                                | String  | No       | N/A                           |
 | debug                    | true                                       | Debug mode                                                                                              | Boolean | No       | false                         |
 | log_path                 | results/                                   | The directory path to specify where the logs should be written to on debug mode.                        | String  | No       | working directory             |
+| skip_scan_log            | true                                       | Disable persistence of the scan log results in Orca's backend (and show only CLI results)               | Boolean | No       | false                         |
 
 ## Annotations
 

@@ -104,6 +104,10 @@ inputs:
   log_path:
     description: "The directory path to specify where the logs should be written to on debug mode. Default to the current working directory"
     required: false
+  skip_scan_log:
+    description: "Disable persistence of the scan log results in Orca's backend (and show only CLI results)"
+    required: false
+    default: "false"
 
 outputs:
   exit_code:
