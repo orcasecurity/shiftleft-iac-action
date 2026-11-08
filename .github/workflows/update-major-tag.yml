@@ -1,0 +1,69 @@
+name: Update Major Version Tag
+
+# Keeps the floating major tag (e.g. v1) pointing at the newest v1.x.y release,
+# so consumers pinned to `orcasecurity/shiftleft-iac-action@v1` pick up patches.
+
+on:
+  # `released` fires only for non-prereleases (and when a prerelease is promoted
+  # to a release), so a prerelease can never move the major tag.
+  release:
+    types: [released]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to point the major tag at (e.g. v1.0.14). Defaults to the latest release. Can also be used to roll back to an older release."
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+# Two releases published close together would otherwise race on the force-push.
+concurrency:
+  group: update-major-tag
+  cancel-in-progress: false
+
+jobs:
+  update-major-tag:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # ratchet:actions/checkout@v4.2.2
+        with:
+          # Full history, not just tags: the workflow_dispatch rollback path
+          # resolves arbitrary older tags, which a shallow fetch may not carry.
+          fetch-depth: 0
+
+      - name: Resolve release tag
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_TAG: ${{ github.event.release.tag_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          TAG="${EVENT_TAG:-${INPUT_TAG:-}}"
+          if [ -z "$TAG" ]; then
+            TAG="$(gh release view --json tagName --jq .tagName)"
+          fi
+          if ! printf '%s' "$TAG" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::warning::'$TAG' is not a vMAJOR.MINOR.PATCH release tag, skipping. The major tag was NOT moved."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "major=${TAG%%.*}" >> "$GITHUB_OUTPUT"
+
+      - name: Move major tag
+        if: steps.resolve.outputs.skip != 'true'
+        env:
+          TAG: ${{ steps.resolve.outputs.tag }}
+          MAJOR: ${{ steps.resolve.outputs.major }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -fa "$MAJOR" -m "Update $MAJOR to $TAG" "$TAG^{commit}"
+          # If a ruleset is ever added over refs/tags/v*, this push fails unless
+          # that ruleset grants this workflow a bypass.
+          git push origin "refs/tags/$MAJOR" --force
+          echo "::notice::$MAJOR now points at $TAG ($(git rev-parse --short "$TAG^{commit}"))"
